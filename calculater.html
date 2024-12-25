@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <title>calculater</title>
+    <body>
+
+<style>
+    *{
+        margin:0;
+        padding: 0;
+    }
+    .calculater{
+        width: 1300px;
+        height: 630px;
+        border: solid red;
+        margin-top: 20px;
+        margin-left: 25px;
+        background: black;
+        justify-content: center;
+        align-items: center;
+    }
+    input{
+        width:100%;
+        height:100px;
+        color:white;
+        border: none;
+        font-size: 50px;
+        text-align: right;
+        border-bottom: 2px solid white;
+        margin-bottom: 5px;
+        background: transparent;
+    }
+    input::placeholder{
+        color:white;    
+        padding: 25px;
+        border-radius: 50%;
+        margin: 3px;
+        border: none;
+    }
+    button{
+        width:300px;
+        height: 90px;
+        font-size: 50px;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 3px;
+        border: none;
+    }
+    button:hover{
+        background: pink;
+        box-shadow: 2px 2px 5px 2px pink;
+    }
+   /* .a{
+        margin-left: 10px;
+        margin-right: 10px;
+    }*/
+    #b{
+        background: #1aff00;
+        font-size: 40px;
+        font-weight: 100px;
+    }
+    #b:hover{
+        background: blue;
+        box-shadow: 2px 2px 5px 2px blue;
+    }
+    #c{
+        background: red;
+    }
+    #c:hover{
+        background:#2600ff;
+        box-shadow: 2px 2px 5px 2px rgb(49, 0, 128);
+    }
+</style>
+<div class="calculater">
+
+        <input id="inputBox" type = "text" placeholder="0">
+    <div class="firstRow">
+        <button onclick="inputBox.value = ' '"id="b"> AC</button>
+        <button onclick="inputBox.value =inputBox.value.toString().slice(0,-1)"id="b"> DEL</button>
+        <button onclick="inputBox.value += '%' "id="b"> %</button>
+        <button onclick="inputBox.value += '/' "id="b"> /</button>
+    </div>
+    <div class="secondRow">
+        <button onclick="inputBox.value += '7' "> 7</button>
+        <button onclick="inputBox.value += '8' "> 8</button>
+        <button onclick="inputBox.value += '9' "> 9</button>
+        <button onclick="inputBox.value += '*' " id="b">*</button>
+    </div>
+    <div class="thirdRow">
+        <button onclick="inputBox.value += '4' "> 4</button>
+        <button onclick="inputBox.value += '5' "> 5</button>
+        <button onclick="inputBox.value += '6' "> 6</button>
+        <button onclick="inputBox.value += '-' "id="b"> -</button>
+    </div>
+    <div class="forthRow">
+        <button onclick="inputBox.value += '1' "> 1</button>
+        <button onclick="inputBox.value += '2' "> 2</button>
+        <button onclick="inputBox.value += '3' "> 3</button>
+        <button onclick="inputBox.value += '+' "id="b"> +</button>
+    </div>
+    <div class="fifthRow">
+        <button onclick="inputBox.value += '00' "> 00</button>
+        <button onclick="inputBox.value += '0' "> 0</button>
+        <button onclick="inputBox.value += '.' "> .</button>
+        <button onclick = "inputBox.value = eval(inputBox.value)" id="c"> =</button>
+    </div>
+</div>
+</div>
+    </body>
+</html>
