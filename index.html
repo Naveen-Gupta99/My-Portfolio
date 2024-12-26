@@ -3,214 +3,437 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Naveen-Gupta Prtfolio</title>
+    <title>My Portfolio</title>
   </head>
-  <body>
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My Portfolio</title>
-      </head>
-      <style>
-        * {
-          padding: 0;
-          margin: 0;
-          box-sizing: border-box;
-        }
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      /* box-sizing: border-box; */
+    }
 
-        header {
-          background-color: #8a2d2d;
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 73% 94%, 0 100%);
-        }
+    header {
+      background-color: #8a2d2d;
+      height: 60px;
+    }
 
-        header nav ul {
-          list-style: none;
-          display: flex;
-          justify-content: space-between;
-          padding: 2rem 0;
-        }
+     /*jgfkjfgsdnn*/
+    .navbar-container {
+      position: absolute;
+}
+   
+   
 
-        header nav ul li {
-          margin-right: 2rem;
-        }
+.hamburger {
+color: white;
+font-size: 30px;
+cursor: pointer;
+padding: 10px;
+z-index: 1000; /* Ensures it's above other content */
+position: relative;
+}
 
-        header nav ul li a {
-          color: #fcfcfc;
-          text-decoration: none;
-          transition: all 0.2s ease;
-        }
+/* Sidebar styles */
+.sidebar {
+height: 100%; /* Full height */
+width: 0; /* Hidden initially */
+position: fixed; /* Stays in place and overlays content */
+top: 0;
+left: 0;
+background-color: #8a2d2d;
+overflow-x: hidden;
+/*     Disable horizontal scroll */
+transition: 0.5s; /* Smooth open/close transition */
+padding-top: 60px; /* Spacing for content */
+color: white;
+z-index: 1000; /* Ensures it's above other content */
+}
 
-        header nav ul li a:hover {
-          color: #ccc;
-        }
-        .nav-links{
-           flex-wrap: wrap             /*this is for nav wrap on mobile size*/
-        }
+/* Sidebar links */
+.sidebar a {
+padding: 10px 15px;
+text-decoration: none;
+font-size: 18px;
+color: white;
+transition: 0.3s;
+display: block;
 
-        main {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 2rem;
-        }
+}
 
-        section {
-          background-color: #f7f7f7;
-          padding: 2rem;
-          margin-bottom: 2rem;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.sidebar a:hover {
+background-color: #575757;
+}
 
-        h1 {
-          font-size: 2rem;
-          margin-bottom: 1rem;
-        }
+.closebtn {
+position: absolute;
+top: 10px;
+right: 20px;
+font-size: 36px;
+text-decoration: none;
+color: white;
+cursor: pointer;
+}
 
-        p {
-          font-size: 1.5rem;
-          margin-bottom: 2rem;
-        }
 
-        ul {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
 
-        li {
-          margin-bottom: 1rem;
-        }
+    section {
+      background-color: #f7f7f7;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        #lihome {
-          margin-left: 20px;
-        }
-        /*#one{
-    width:fit-content;
-    height: 50px;
-}*/
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 1rem;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #lihome {
+      margin-left: 20px;
+    }
+
 
 #First{
-  text-decoration: none;
-  font-size: 25px;
-  
+text-decoration: none;
+font-size: 25px;
+
 }
 #Two{
-  text-decoration: none;
-  font-size: 25px;
+text-decoration: none;
+font-size: 25px;
 }
 
 #three{
-  width: 260px;
-  
-  
+width: 260px;
+
+
 }
 img{
-  width: 50px;
+width: 50px;
 }
 #ChatBot{
-  display: flex;
-  float: right;
-  font-size: 25px;
-  padding-top: 10px;
-  text-decoration: none;
-  
+display: flex;
+float: right;
+font-size: 25px;
+padding-top: 10px;
+text-decoration: none;
+
 }
 h6{
-  font-size: 20px;
+font-size: 20px;
 }
 .gith{
-  font-size: 25px;
-  text-decoration: none;
+font-size: 25px;
+text-decoration: none;
 }
 .Naveen{
-  width: 180px;
- border-radius: 50%;
+width: 180px;
+border-radius: 50%;
 }
 h2{
-  margin-top: 15;
+margin-top: 15;
+}
+
+/* .Achievement{
+width: 100%;
+padding: 10px;
+}  */
+
+.inter{
+width: 250px;
+margin-right: 10px;
+} 
+h5{
+font-size: 20px;
+color: rgb(226, 116, 43);
+}
+
+/*svg*/
+.insta{
+width: 40px;
+height: 40px;
+float: right;
+margin-right: 15px;
+margin-top:5px ;
+/* background-color: #f7f7f7; */
+cursor: pointer;
+}
+.linkedIn{
+width: 40px;
+float: right;
+margin-right: 15px;
+margin-top:5px ;
+cursor: pointer;
+}
+.youtub{
+width: 40px;
+float: right;
+margin-right: 15px;
+margin-top:5px ;
+cursor: pointer;
+}
+.github{
+width: 40px;
+float: right;
+margin-right: 15px;
+margin-top:5px ;
+cursor: pointer;
+}
+
+@media (max-width: 600px) {
+
+.insta{
+width: 30px;
+height: 30px;
+float: right;
+margin-right: 10px;
+margin-top:10px ;
+}
+.linkedIn{
+width: 30px;
+float: right;
+margin-right: 10px;
+margin-top:10px ;
+}
+.youtub{
+width: 30px;
+float: right;
+margin-right: 10px;
+
+}
+.git{
+width: 30px;
+float: right;
+margin-right: 10px;
+margin-top:10px ;
+}
+}
+</style>
+  <body>
+    <header>
+     
+        <svg class="insta" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 128 128" id="instagram">
+            <defs>
+              <clipPath id="b">
+                <circle cx="64" cy="64" r="64" fill="none"></circle>
+              </clipPath>
+              <clipPath id="c">
+                <path fill="none" d="M104-163H24a24.07 24.07 0 0 0-24 24v80a24.07 24.07 0 0 0 24 24h80a24.07 24.07 0 0 0 24-24v-80a24.07 24.07 0 0 0-24-24Zm16 104a16 16 0 0 1-16 16H24A16 16 0 0 1 8-59v-80a16 16 0 0 1 16-16h80a16 16 0 0 1 16 16Z"></path>
+              </clipPath>
+              <clipPath id="e">
+                <circle cx="82" cy="209" r="5" fill="none"></circle>
+              </clipPath>
+              <clipPath id="g">
+                <path fill="none" d="M64-115a16 16 0 0 0-16 16 16 16 0 0 0 16 16 16 16 0 0 0 16-16 16 16 0 0 0-16-16Zm0 24a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8Z"></path>
+              </clipPath>
+              <clipPath id="h">
+                <path fill="none" d="M84-63H44a16 16 0 0 1-16-16v-40a16 16 0 0 1 16-16h40a16 16 0 0 1 16 16v40a16 16 0 0 1-16 16Zm-40-64a8 8 0 0 0-8 8v40a8 8 0 0 0 8 8h40a8 8 0 0 0 8-8v-40a8 8 0 0 0-8-8Z"></path>
+              </clipPath>
+              <clipPath id="i">
+                <circle cx="82" cy="-117" r="5" fill="none"></circle>
+              </clipPath>
+              <radialGradient id="a" cx="27.5" cy="121.5" r="137.5" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#ffd676"></stop>
+                <stop offset=".25" stop-color="#f2a454"></stop>
+                <stop offset=".38" stop-color="#f05c3c"></stop>
+                <stop offset=".7" stop-color="#c22f86"></stop>
+                <stop offset=".96" stop-color="#6666ad"></stop>
+                <stop offset=".99" stop-color="#5c6cb2"></stop>
+              </radialGradient>
+              <radialGradient xlink:href="#a" id="d" cx="27.5" cy="-41.5" r="148.5"></radialGradient>
+              <radialGradient xlink:href="#a" id="f" cx="13.87" cy="303.38" r="185.63"></radialGradient>
+              <radialGradient xlink:href="#a" id="j" cx="13.87" cy="-22.62" r="185.63"></radialGradient>
+            </defs>
+            <g clip-path="url(#b)">
+              <circle cx="27.5" cy="121.5" r="137.5" fill="url(#a)"></circle>
+            </g>
+            <g clip-path="url(#c)">
+              <circle cx="27.5" cy="-41.5" r="148.5" fill="url(#d)"></circle>
+            </g>
+            <g clip-path="url(#e)">
+              <circle cx="13.87" cy="303.38" r="185.63" fill="url(#f)"></circle>
+            </g>
+            <g clip-path="url(#g)">
+              <circle cx="27.5" cy="-41.5" r="148.5" fill="url(#d)"></circle>
+            </g>
+            <g clip-path="url(#h)">
+              <circle cx="27.5" cy="-41.5" r="148.5" fill="url(#d)"></circle>
+            </g>
+            <g clip-path="url(#i)">
+              <circle cx="13.87" cy="-22.62" r="185.63" fill="url(#j)"></circle>
+            </g>
+            <circle cx="82" cy="46" r="5" fill="#fff"></circle>
+            <path fill="#fff" d="M64 48a16 16 0 1 0 16 16 16 16 0 0 0-16-16Zm0 24a8 8 0 1 1 8-8 8 8 0 0 1-8 8Z"></path>
+            <rect width="64" height="64" x="32" y="32" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="8" rx="12" ry="12"></rect>
+          </svg>
+
+      
+
+          <svg class="linkedIn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112.196 112.196" id="linkedin">
+            <circle cx="56.098" cy="56.097" r="56.098" fill="#007ab9"></circle>
+            <path fill="#f1f2f2" d="M89.616 60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118-3.705 0-5.906 2.491-6.878 4.903-.353.862-.444 2.059-.444 3.268v22.524h-13.41s.18-36.546 0-40.329h13.411v5.715c-.027.045-.065.089-.089.132h.089v-.132c1.782-2.742 4.96-6.662 12.085-6.662 8.822 0 15.436 5.764 15.436 18.149zm-54.96-36.642c-4.587 0-7.588 3.011-7.588 6.967 0 3.872 2.914 6.97 7.412 6.97h.087c4.677 0 7.585-3.098 7.585-6.97-.089-3.956-2.908-6.967-7.496-6.967zm-6.791 59.77H41.27v-40.33H27.865v40.33z"></path>
+          </svg>
+
+        
+          <svg class="youtub" xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 48 48" id="youtube">
+            <rect width="48" height="48" fill="red" rx="24"></rect>
+            <path fill="#fff" fill-rule="evenodd" d="M35.7379 14.1401C37.0229 14.486 38.0361 15.4992 38.3821 16.7842C39.0246 19.1318 38.9999 24.0247 38.9999 24.0247C38.9999 24.0247 38.9999 28.8929 38.3821 31.2405C38.0361 32.5255 37.0229 33.5387 35.7379 33.8846C33.3903 34.5024 23.9999 34.5024 23.9999 34.5024C23.9999 34.5024 14.6342 34.5024 12.2619 33.8599C10.9769 33.5139 9.96375 32.5008 9.61779 31.2158C9 28.8929 9 24 9 24C9 24 9 19.1318 9.61779 16.7842C9.96375 15.4992 11.0016 14.4613 12.2619 14.1153C14.6095 13.4976 23.9999 13.4976 23.9999 13.4976C23.9999 13.4976 33.3903 13.4976 35.7379 14.1401ZM28.8187 24L21.0098 28.4975V19.5025L28.8187 24Z" clip-rule="evenodd"></path>
+          </svg>
+       
+
+          
+          <svg  class="github"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="github">
+            <path fill="#00020c" fill-rule="evenodd" d="m60,12c0-4.42-3.58-8-8-8H12c-4.42,0-8,3.58-8,8v40c0,4.42,3.58,8,8,8h40c4.42,0,8-3.58,8-8V12h0Z"></path>
+            <path fill="#fff" fill-rule="evenodd" d="m26.73,47.67c0,1.1-.01,2.3-.01,3.4,0,.26-.13.51-.34.67-.21.16-.49.2-.74.13-8.4-2.7-14.49-10.58-14.49-19.87,0-11.51,9.34-20.85,20.85-20.85s20.85,9.34,20.85,20.85c0,9.28-6.08,17.15-14.46,19.85-.25.08-.53.03-.74-.13-.21-.16-.34-.4-.34-.67-.02-2.45-.03-5.34-.03-6.65s-1.28-2.39-1.28-2.39c0,0,9.45-1.16,9.45-9.34,0-5.19-2.06-6.94-2.06-6.94.44-1.86.38-3.63-.1-5.31-.07-.24-.31-.4-.56-.38-2.01.18-3.85.91-5.52,2.24,0,0-2.95-.81-5.2-.81h0c-2.25,0-5.2.81-5.2.81-1.67-1.32-3.52-2.06-5.52-2.24-.25-.02-.49.14-.56.38-.48,1.68-.54,3.45-.11,5.31,0,0-2.05,1.75-2.05,6.94,0,8.18,9.45,9.34,9.45,9.34,0,0-1.28,1.08-1.28,2.39v.3c-.72.26-1.7.5-2.8.43-2.99-.2-3.39-3.42-4.62-3.94-.9-.38-1.78-.43-2.45-.37-.2.02-.36.16-.41.35-.05.19.02.39.18.51.81.55,1.89,1.33,2.19,1.9.81,1.52,2.06,3.93,3.67,4.19,1.96.32,3.36.13,4.25-.12h0Z"></path>
+          </svg>
+          
+        
+        
+        <div class="navbar-container">
+            <span class="hamburger" onclick="toggleNav()">&#9776;</span>
+            <nav id="sidebar" class="sidebar">
+              <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+              <a href="#home">Home</a>
+              <a href="#about">About</a>
+              <a href="#projects">Projects</a>
+              <a href="#achievements">Achievements</a>
+              <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    
+    <main>
+      <img class = "Naveen" id="Naveen" src="photo (1).jpg" alt="">
+      <h2>Naveen Kr Gupta</h2>
+     <h4>BCA</h5>
+
+      
+      <section id="home">
+        <h1>hello ! Welcome to My Portfolio</h1>
+        <p>This is a simple portfolio website.</p>
+      </section>
+
+      
+      <section id="about">
+        <h1>About Me</h1>
+        <p>
+          Hello..! I am Naveen Kr Gupta from Maharajganj District ,
+          Currently I am Styding BCA (Bechlor's of Computer Application) 1st
+          Year Student in MGPG (Mahatma Gandhi Post Graduate College
+          Gorakhpur).Now many Thanks to wisite my Portfolio..!
+        </p>
+
+        
+      </section>
+      <section id="projects">
+        <h1>My Projects</h1>
+        <ul class="proj">
+            <li >
+         
+          <a id="First" href="TIMER/timer.html">project 01 (Timer)</a>
+        </li>
+          <li >
+          
+            <a id="Two" href="calculater.html" id="Second">Project 02 (calculator)</a>
+              
+            
+          </li>
+          <li id="three">
+            
+            <img id = "img" src="OpenAI.png" alt="Project 3" />
+            <a id = "ChatBot" href="ChatBot.html">Project 03 (ChatBot)</a>
+          </li>
+        </ul>
+       
+      </section>
+      <section>
+        <h1>Github Link </h1>
+        <a class = "gith" href="https://github.com/Naveen-Gupta99">Github.com</a>
+      </section>
+      <section id="achievements">
+
+
+        <h1>My Achievements</h1>
+        <ul class="Achievement">
+          <span id="inter"><img class="inter" src="12marksheet.png" alt="12marksheet"></span>
+          <h5>12th Marksheet</h5>
+          
+        </ul>
+      </section>
+
+
+      <section id="contact">
+        <h1>Get in Touch</h1>
+        <p>
+          Contact me at
+          <a href="mailto:ng968633@gmil.com">ng968633@gmail.com</a>
+        </p>
+      </section>
+    </main>
+
+    
+<script>
+const instagram = document.getElementById('instagram');
+const linkedIn = document.getElementById('linkedin');
+const github = document.getElementById('github');
+const youtub = document.getElementById('youtube');
+
+
+instagram.addEventListener('click',()=>{
+    window.open('https://www.instagram.com/naveen___9161/profilecard/?igsh=MXdianNyaXpkZ3cyYg==')
+})
+
+linkedIn.addEventListener('click', ()=>{
+    window.open('https://www.linkedin.com/in/naveen-kumar-gupta-510190336?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app')
+})
+
+github.addEventListener('click',()=>{
+    window.open('https://github.com/Naveen-Gupta99');
+})
+
+youtub.addEventListener('click' , ()=>{
+    window.open('https://www.youtube.com/@MrCode99');
+})
+
+
+function toggleNav() {
+const sidebar = document.getElementById("sidebar");
+if (sidebar.style.width === "250px") {
+sidebar.style.width = "0"; // Close the sidebar
+} else {
+sidebar.style.width = "250px"; // Open the sidebar
+}
 }
 
 
-      </style>
-      <body>
-        <header>
-          <nav>
-            <ul class="nav-links">
-              <li id="lihome"><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#achievements">Achievements</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-        </header>
-        <main>
-          <img class = "Naveen" src="photo (1).jpg" alt="">
-          <h2>Naveen Kr Gupta</h2>
-         <h4>BCA</h5>
-          <section id="home">
-            <h1>hello ! Welcome to My Portfolio</h1>
-            <p>This is a simple portfolio website.</p>
-          </section>
-          <section id="about">
-            <h1>About Me</h1>
-            <p>
-              Hello..! I am Naveen Kr Gupta from Maharajganj District ,
-              Currently I am Styding BCA (Bechlor's of Computer Application) 1st
-              Year Student in MGPG (Mahatma Gandhi Post Graduate College
-              Gorakhpur).Now many Thanks to wisite my Portfolio..!
-            </p>
-          </section>
-          <section id="projects">
-            <h1>My Projects</h1>
-            <ul class="proj">
-                <li >
-             
-              <a id="First" href="TIMER/timer.html">project 01 (Timer)</a>
-            </li>
-              <li >
-              
-                <a id="Two" href="calculater.html" id="Second">Project 02 (calculator)</a>
-                  
-                
-              </li>
-              <li id="three">
-                
-                <img id = "img" src="OpenAI.png" alt="Project 3" />
-                <a id = "ChatBot" href="ChatBot.html">Project 03 (ChatBot)</a>
-              </li>
-            </ul>
-           
-          </section>
-          <section>
-            <h1>Github Link </h1>
-            <a class = "gith" href="https://github.com/Naveen-Gupta99">Github.com</a>
-          </section>
-          <section id="achievements">
-            <h1>My Achievements</h1>
-            <ul>
-              <li>Achievement 1</li>
-              <li>Achievement 2</li>
-              <li>Achievement 3</li>
-            </ul>
-          </section>
-          <section id="contact">
-            <h1>Get in Touch</h1>
-            <p>
-              Contact me at
-              <a href="mailto:ng968633@gmil.com">ng968633@gmail.com</a>
-            </p>
-          </section>
-        </main>
-      </body>
- <script src="portfolio.js"></script>
+</script>
 
-  </body>
+</body>
 </html>
