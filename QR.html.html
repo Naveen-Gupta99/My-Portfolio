@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+</head>
+
+<style>
+    *{
+margin: 0;
+padding: 0;
+
+}
+body{
+    background-color: grey;
+      display: flex;
+      justify-content: center; /* Horizontal centering */
+      align-items: center;   /* Vertical centering */
+      /* height: 100vh;         Full viewport height */
+      margin: 0;
+    
+    /* display: flex; */
+}
+.container{
+    width: 350px;
+    height: 450px;
+    border: 2px solid black;
+    padding: 5px;
+    margin-top: 5%;
+    /* display: flex; */
+    /* margin-left: 35%; */
+    background-color:rgb(58, 183, 214);
+    border-radius: 20px;
+   
+    
+}
+#title{
+    text-align: center;
+    padding: 10px;
+}
+.search{
+    width: 90%;
+    display: flex;
+    padding: 9px;
+    border-radius: 20px;
+    
+}
+#btn{
+   width: 35%;
+   border-radius: 20px;
+ cursor: pointer;
+}
+#btn:hover{
+    width: 40%;
+    border-radius :15px; 
+    background-color:rgb(43, 233, 43);
+}
+.image{
+width: 80%;
+margin-left: 25px;
+margin-top: 20px;
+
+}
+.error{
+    animation: shake 0.1s linear 10;
+}
+@keyframes shake{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-2px);
+    }
+    50%{
+        transform: translate(0);
+    }
+    75%{
+        transform: translateX(2px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+</style>
+
+
+<body>
+    <div class="container">
+        <h2 id="title">QR Genrator</h2>
+        <div class="search">
+            <input type="text" placeholder="Enter Your text" class="search" id="text">
+            <button id="btn" onclick="GenratorQr()">Create</button>
+        </div>
+        <din class="qr">
+            <img src="" class="image">
+        </din>
+    </div>
+
+
+
+
+    <script>
+ let text = document.getElementById("text");
+ let btn = document.querySelector("#btn");
+ let img = document.querySelector(".image");
+ let qr = document.querySelector(".qr");
+
+ function GenratorQr(){
+    if(text.value.length > 0){
+       img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + text.value;
+ }
+ else{
+    alert("Enter Please Enter Something...!");
+   text.classList.add("error")
+   setTimeout(()=>{
+    text.classList.add("error")
+   },1000)
+ }
+ }
+    
+    </script>
+</body>
+</html>
