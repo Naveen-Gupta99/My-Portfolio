@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, 'src/.env') });
+// require('dotenv').config({ path: path.join(__dirname, 'src/.env') });
 const Enquiry = require("./encaury.mongoose.js");
 const cor = require('cors') // Ensure the file name matches
 require("dotenv").config();
