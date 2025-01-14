@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+#searchResults {
+  margin-top: 20px;
+  list-style-type: none;
+  padding: 0;
+}
+
+#searchResults li {
+  background: #f9f9f9;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#searchResults li strong {
+  color: #333;
+}
+
+</style>
+<body>
+    <div class="form-container">
+        <h2>Search Data</h2>
+        <div class="form-group">
+          <label for="search">Search</label>
+          <input type="text" id="searchInput" name="search" placeholder="Enter name or email">
+        </div>
+        <button id="searchButton" class="submit-btn">Search</button>
+        <ul id="searchResults"></ul>
+
+        <div class="searchData">
+          <span class="search">Click here for Insert data...!</span>
+          <a href="index.html">Click here</a>
+        </div>
+
+      </div>
+      
+      <script>
+       const searchButton = document.getElementById('searchButton');
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+
+searchButton.addEventListener('click', function () {
+  const query = searchInput.value.trim();
+
+  if (query === "") {
+    alert("Please enter a search term!");
+    return;
+  }
+
+  fetch(`http://localhost:8000/api/enquiry-search?query=${encodeURIComponent(query)}`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Clear previous results
+      searchResults.innerHTML = "";
+
+      if (data.length > 0) {
+        data.forEach((item) => {
+          const li = document.createElement("li");
+          li.innerHTML = `<strong>Name:</strong> ${item.name} <br>
+                          <strong>phone:</strong> ${item.phone}<br>
+                          <strong>Email:</strong> ${item.email} <br>
+                          <strong>Address:</strong>${item.address}<br>
+                          <strong>Message:</strong> ${item.message}<br>
+                          <string>Object Id:</strong> ${item._id}`;
+          searchResults.appendChild(li);
+        });
+      } else {
+        searchResults.innerHTML = "<li>No results found.</li>";
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("An error occurred while searching. Please try again.");
+    });
+});
+
+      </script>
+      
+</body>
+</html>
