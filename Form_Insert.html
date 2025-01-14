@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+    .error-message {
+      color: #ff3860;
+      font-size: 14px;
+      display: none;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background: #0056b3;
+    }
+    .success-message {
+      display: none;
+      color: #28a745;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .searchData{
+      margin-top: 20px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Interactive Form</h2>
+  <form id="interactiveForm">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name">
+      <div class="error-message" id="nameError">Name is required.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone No.</label>
+      <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+      <div class="error-message" id="emailError">Please enter a valid phone No.</div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
+      <div class="error-message" id="emailError">Please enter a valid email.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" placeholder="Enter your address">
+      <div class="error-message" id="emailError">Please enter a valid address.</div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Write your message"></textarea>
+    </div>
+
+
+    <button type="submit" id="registrationForm" class="submit-btn">Submit</button>
+    <div class="success-message" id="successMessage">Form submitted successfully!</div>
+  </form>
+
+  <div class="searchData">
+    <span class="search">Click here for Search data...!</span>
+    <a href="search.html">Click here</a>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('interactiveForm');
+const nameInput = document.getElementById('name');
+const phoneInput = document.getElementById('phone');
+const emailInput = document.getElementById('email');
+const addressInput = document.getElementById('address');
+const messageInput = document.getElementById('message'); // Add message input reference
+const nameError = document.getElementById('nameError');
+const emailError = document.getElementById('emailError');
+const successMessage = document.getElementById('successMessage');
+
+// Hide success message initially
+successMessage.style.display = "none";
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Form data
+  const formData = {
+    name: nameInput.value,
+    phone:phoneInput.value,
+    email: emailInput.value,
+    address:addressInput.value,
+    message: messageInput.value, // Include message field
+  };
+
+  // Validate the form
+  let valid = true;
+
+  // Name validation
+  if (nameInput.value.trim() === "") {
+    nameError.style.display = "block";
+    valid = false;
+  } else {
+    nameError.style.display = "none";
+  }
+
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailInput.value)) {
+    emailError.style.display = "block";
+    valid = false;
+  } else {
+    emailError.style.display = "none";
+  }
+
+  // If valid, send data to the API
+  if (valid) {
+    fetch("http://localhost:8000/api/enquiry-insert", {
+      method: "POST", // HTTP method
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData), // Convert data to JSON
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (data.status === 1) {
+          successMessage.style.display = "block"; // Show success message
+          form.reset(); // Reset form
+          console.log(data.msg); // Log success message
+        } else {
+          alert(`Error: ${data.msg}`); // Show API error message
+        }
+      })
+      .catch((error) => {
+        // console.error("Error:", error);
+        alert("An error occurred while submitting the form. Please try again.");
+      });
+  }
+});
+
+
+  
+
+</script>
+
+</body>
+</html>
